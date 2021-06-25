@@ -80,6 +80,11 @@ int main(int argc, char **argv)
     ROS_INFO("You have not provided any argument. So taking default values.");
     filename = path + file;
   }
+
+  // MOVEIT planning scene for collision checking
+  
+
+
   // ros::Publisher workspace_pub = n.advertise<map_creator::WorkSpace>("workspace", 10);
   ros::Rate loop_rate(10);
 
@@ -143,6 +148,7 @@ int main(int argc, char **argv)
         static std::vector< double > point_on_sphere;
         sd.convertPoseToVector(pose[j], point_on_sphere);
         pose_col.push_back( std::make_pair(point_on_sphere, &sphere_coord[i]));
+        // TODO make sure the set of poses is identical
       }
     }
 
@@ -187,6 +193,7 @@ int main(int argc, char **argv)
       //const std::vector<double>* point_on_sphere = it->second;
 
       // Reachability Index D=R/N*100;
+      // TODO write a bool array for R
       float d = float(pose_col_filter.count(sphere_coord)) / (pose_col.size() / new_data.size()) * 100;
       sphere_color.insert( std::make_pair(it->first, double(d)));
     }

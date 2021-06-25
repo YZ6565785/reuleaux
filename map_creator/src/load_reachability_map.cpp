@@ -36,6 +36,7 @@ int main(int argc, char **argv)
     map_creator::WorkSpace ws;
     ws.header.stamp = ros::Time::now();
     ws.header.frame_id = "/base_link";
+    ws.header.frame_id = "/link_base";
     ws.resolution = res;
 
     for (MapVecDoublePtr::iterator it = sphere_col.begin(); it != sphere_col.end(); ++it)
@@ -45,6 +46,12 @@ int main(int argc, char **argv)
        wss.point.y = (*it->first)[1];
        wss.point.z = (*it->first)[2];
        wss.ri = it->second;
+
+      // Victor, filter half of the reachability workspace
+      if (wss.point.x < 0.1)
+      {
+        continue;
+      }
 
        for (MultiMapPtr::iterator it1 = pose_col_filter.lower_bound(it->first); it1 != pose_col_filter.upper_bound(it->first); ++it1)
        {
