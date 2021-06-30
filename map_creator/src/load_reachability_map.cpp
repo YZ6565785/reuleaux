@@ -48,7 +48,7 @@ int main(int argc, char **argv)
        wss.ri = it->second;
 
       // Victor, filter half of the reachability workspace
-      if (wss.point.x < 0.1)
+      if (wss.point.x < 0.1 && wss.point.z > 0.1 )
       {
         continue;
       }

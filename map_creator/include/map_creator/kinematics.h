@@ -18,6 +18,9 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Vector3.h>
 
+// MoveIt
+#include <moveit/planning_scene/planning_scene.h>
+
 #if IK_VERSION > 54
 #define IKREAL_TYPE IkReal  // for IKFast 56,61
 #else
@@ -37,7 +40,17 @@ public:
   void getPoseFromFK(const std::vector< double > joint_values, std::vector< double >& pose);
 
   bool isIKSuccess(const std::vector<double> &pose, std::vector<double> &joints, int& numOfSolns);
-
+  
+  bool 
+  isIKSuccess(
+    planning_scene::PlanningScene &ps,
+    collision_detection::CollisionRequest c_request,
+    collision_detection::CollisionResult c_result,
+    const std::vector<double> &pose, 
+    std::vector<double> &joints, 
+    int& numOfSolns
+  );
+  
 
 
   const std::string getRobotName();

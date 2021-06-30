@@ -85,6 +85,13 @@ add_executable(load_capability_map src/load_capability_map.cpp)
 add_dependencies(load_capability_map ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(load_capability_map  hdf5_dataset ${catkin_LIBRARIES})
 
+# check node
+add_executable(check src/check.cpp)
+target_link_libraries(check ${catkin_LIBRARIES})
+
+# sampling pose node
+add_executable(sample_poses src/sample_poses.cpp)
+target_link_libraries(sample_poses sphere_discretization ${catkin_LIBRARIES})
 
 if(CATKIN_ENABLE_TESTING)
   catkin_add_gtest(utest test/utest.cpp)

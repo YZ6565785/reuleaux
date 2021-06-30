@@ -1,0 +1,11 @@
+<launch>
+  <arg name="res" default="0.08" />
+  <!-- send Panda urdf to parameter server -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find xarm_description)/urdf/xarm6_robot.urdf.xacro'" />
+
+  <include file="$(find xarm6_moveit_config)/launch/planning_context.launch"/>
+
+  <node name="create_reachability_map" pkg="map_creator" type="create_reachability_map" respawn="false" output="screen">
+    <param name="resolution" value="$(arg res)" />
+  </node>
+</launch>
