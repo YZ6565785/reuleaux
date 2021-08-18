@@ -1,0 +1,41 @@
+
+export ROBOT_RM="xarm6_robot_rm"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+## For xarm6
+
+export ROBOT_RM="xarm6_r0.08_reachability"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+export ROBOT_RM="xarm6_r0.05_reachability_50poses"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+export ROBOT_RM="xarm6_r0.1_reachability_50poses"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+export ROBOT_RM="xarm6_r0.5_reachability_50poses"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+## For xarm6_box_base
+
+export ROBOT_RM="xarm6_box_base_r0.1_reachability_50poses";\
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+export ROBOT_RM="xarm6_box_base_r0.08_reachability_50poses";\
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+export ROBOT_RM="xarm6_box_base_r0.05_reachability_50poses";\
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+
+## For iiwa14
+
+export ROBOT_RM="iiwa14_r0.1_reachability_50poses"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+export ROBOT_RM="iiwa14_r0.08_reachability_50poses"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
+
+
+export ROBOT_RM="iiwa14_r0.05_reachability_2"
+rosrun map_creator load_reachability_map `rospack find map_creator`/maps/"$ROBOT_RM".h5
